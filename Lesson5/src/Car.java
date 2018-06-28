@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 /**
  * Created by Juliana on 27.06.2018
@@ -11,6 +10,9 @@ public class Car {
     private String color;
     private int price;
     private int number;
+    int y = 04;
+
+
 
     public Car(int id, String mark, String model, int year, String color, int price, int number) {
         this.id = id;
