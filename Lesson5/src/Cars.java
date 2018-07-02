@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.Year;
 import java.util.ArrayList;
 
 /**
@@ -32,7 +33,7 @@ public class Cars {
     public ArrayList<Car> getCarsByModelAndYear(String model, int n) {
         ArrayList<Car> result = new ArrayList<>();
         for (Car car : cars) {
-            if (car.getModel().equals(model) && LocalDate.now().getYear() - car.getYear() > n) {
+            if (car.getModel().equals(model) && Year.now().getValue() - car.getYear() > n) {
                 result.add(car);
             }
         }

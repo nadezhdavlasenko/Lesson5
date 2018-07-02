@@ -11,8 +11,6 @@ public class Car {
     private int price;
     private int number;
 
-
-
     public Car(int id, String mark, String model, int year, String color, int price, int number) {
         this.id = id;
         this.mark = mark;
