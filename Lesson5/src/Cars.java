@@ -30,7 +30,6 @@ public class Cars {
     }
 
     public ArrayList<Car> getCarsByModelAndYear(String model, int n) {
-        int y = LocalDate.now().getYear();
         ArrayList<Car> result = new ArrayList<>();
         for (Car car : cars) {
             if (car.getModel().equals(model) && LocalDate.now().getYear() - car.getYear() > n) {
