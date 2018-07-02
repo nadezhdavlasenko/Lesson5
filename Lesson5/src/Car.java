@@ -93,3 +93,50 @@ public class Car {
                 '}';
     }
 }
+
+class CarBuilder{
+    private static int id = 0;
+    private String mark = "Untitled";
+    private String model = "Untitled";
+    private int year = 0;
+    private String color = "Metallic";
+    private int price = 0;
+    private int number = 0;
+
+    CarBuilder buildMark(String mark){
+        this.mark = mark;
+        return this;
+    }
+    CarBuilder buildModel(String model){
+        this.model = model;
+        return this;
+    }
+    CarBuilder buildYear(int year){
+        this.year = year;
+        return this;
+    }
+    CarBuilder buildColor(String color){
+        this.color = color;
+        return this;
+    }
+    CarBuilder buildPrice(int price){
+        this.price = price;
+        return this;
+    }
+    CarBuilder buildNumber(int number){
+        this.number = number;
+        return this;
+    }
+
+    Car build(){
+        Car car = new Car();
+        car.setId(++id);
+        car.setMark(mark);
+        car.setModel(model);
+        car.setYear(year);
+        car.setColor(color);
+        car.setPrice(price);
+        car.setNumber(number);
+        return car;
+    }
+}
