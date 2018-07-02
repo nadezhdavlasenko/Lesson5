@@ -19,6 +19,8 @@ public class Runner {
 
     public static Cars getCars() {
         Car carB1 = new CarBuilder().buildMark("Toyota").buildModel("Corolla").buildYear(2016).buildColor("Gray").buildPrice(21000).buildNumber(1111).build();
+        Car carB2 = new CarBuilder().buildMark("Toyota").buildModel("Camry").buildYear(2016).buildColor("Black").buildPrice(44000).buildNumber(2222).build();
+
         Car car = new Car(1, "mark1", "model1", 2000, "color1", 1111, 1234);
         Car car1 = new Car(2, "mark1", "model2", 2000, "color2", 2222, 1235);
         Car car2 = new Car(3, "mark2", "model2", 2012, "color3", 2222, 1236);
@@ -26,6 +28,7 @@ public class Runner {
 
         Cars cars = new Cars();
         cars.addCar(carB1);
+        cars.addCar(carB2);
         cars.addCar(car);
         cars.addCar(car1);
         cars.addCar(car2);
