@@ -13,13 +13,16 @@ public class Runner {
         System.out.println("Cписок автомобилей заданной модели, которые эксплуатируются больше n лет");
         printResult(cars.getCarsByModelAndYear("model2", 10));
         System.out.println("Cписок автомобилей заданного года выпуска, цена которых больше указанной");
-        printResult(cars.getCarsByYearAndPrice(2016, 1500));
+        printResult(cars.getCarsByYearAndPrice(2001, 1500));
 
     }
 
     public static Cars getCars() {
-        Car carB1 = new CarBuilder().buildMark("Toyota").buildModel("Corolla").buildYear(2016).buildColor("Gray").buildPrice(21000).buildNumber(1111).build();
-        Car carB2 = new CarBuilder().buildMark("Toyota").buildModel("Camry").buildYear(2016).buildColor("Black").buildPrice(44000).buildNumber(2222).build();
+        Director director = new Director();
+        director.setCarBuilder(new PassatBuilder());
+        Car carB3 = director.buildCar();
+//        Car carB1 = new CarBuilder().buildMark("Toyota").buildModel("Corolla").buildYear(2016).buildColor("Gray").buildPrice(21000).buildNumber(1111).build();
+//        Car carB2 = new CarBuilder().buildMark("Toyota").buildModel("Camry").buildYear(2016).buildColor("Black").buildPrice(44000).buildNumber(2222).build();
 
         Car car = new Car(1, "mark1", "model1", 2000, "color1", 1111, 1234);
         Car car1 = new Car(2, "mark1", "model2", 2000, "color2", 2222, 1235);
@@ -27,8 +30,9 @@ public class Runner {
         Car car3 = new Car(4, "mark2", "model2", 2004, "color4", 3000, 1237);
 
         Cars cars = new Cars();
-        cars.addCar(carB1);
-        cars.addCar(carB2);
+//        cars.addCar(carB1);
+//        cars.addCar(carB2);
+        cars.addCar(carB3);
         cars.addCar(car);
         cars.addCar(car1);
         cars.addCar(car2);

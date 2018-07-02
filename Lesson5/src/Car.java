@@ -94,49 +94,113 @@ public class Car {
     }
 }
 
-class CarBuilder{
+abstract class CarBuilder{
+    Car car;
     private static int id = 0;
-    private String mark = "Untitled";
-    private String model = "Untitled";
-    private int year = 0;
-    private String color = "Metallic";
-    private int price = 0;
-    private int number = 0;
+    void createCar(){car = new Car();}
+    void builId(){car.setId(++id);}
+    abstract void buildMark();
+    abstract void buildModel();
+    abstract void buildYear();
+    abstract void buildColor();
+    abstract void buildPrice();
+    abstract void buildNumber();
+    Car getCar(){return car;}
+}
 
-    CarBuilder buildMark(String mark){
-        this.mark = mark;
-        return this;
-    }
-    CarBuilder buildModel(String model){
-        this.model = model;
-        return this;
-    }
-    CarBuilder buildYear(int year){
-        this.year = year;
-        return this;
-    }
-    CarBuilder buildColor(String color){
-        this.color = color;
-        return this;
-    }
-    CarBuilder buildPrice(int price){
-        this.price = price;
-        return this;
-    }
-    CarBuilder buildNumber(int number){
-        this.number = number;
-        return this;
+class PassatBuilder extends CarBuilder{
+
+    @Override
+    void buildMark() {
+        car.setMark("Volkswagen");
     }
 
-    Car build(){
-        Car car = new Car();
-        car.setId(++id);
-        car.setMark(mark);
-        car.setModel(model);
-        car.setYear(year);
-        car.setColor(color);
-        car.setPrice(price);
-        car.setNumber(number);
-        return car;
+    @Override
+    void buildModel() {
+        car.setModel("Passat");
+    }
+
+    @Override
+    void buildYear() {
+        car.setYear(2001);
+    }
+
+    @Override
+    void buildColor() {
+        car.setColor("Black");
+    }
+
+    @Override
+    void buildPrice() {
+        car.setPrice(30000);
+    }
+
+    @Override
+    void buildNumber() {
+        car.setNumber(3333);
     }
 }
+
+class Director{
+    CarBuilder carBuilder;
+    private static int id = 0;
+    void setCarBuilder(CarBuilder carBuilder){this.carBuilder = carBuilder;}
+    Car buildCar(){
+        carBuilder.createCar();
+        carBuilder.builId();
+        carBuilder.buildMark();
+        carBuilder.buildModel();
+        carBuilder.buildYear();
+        carBuilder.buildColor();
+        carBuilder.buildPrice();
+        carBuilder.buildNumber();
+        return carBuilder.getCar();
+    }
+}
+
+//class CarBuilder{
+//    private static int id = 0;
+//    private String mark = "Untitled";
+//    private String model = "Untitled";
+//    private int year = 0;
+//    private String color = "Metallic";
+//    private int price = 0;
+//    private int number = 0;
+//
+//    CarBuilder buildMark(String mark){
+//        this.mark = mark;
+//        return this;
+//    }
+//    CarBuilder buildModel(String model){
+//        this.model = model;
+//        return this;
+//    }
+//    CarBuilder buildYear(int year){
+//        this.year = year;
+//        return this;
+//    }
+//    CarBuilder buildColor(String color){
+//        this.color = color;
+//        return this;
+//    }
+//    CarBuilder buildPrice(int price){
+//        this.price = price;
+//        return this;
+//    }
+//    CarBuilder buildNumber(int number){
+//        this.number = number;
+//        return this;
+//    }
+//
+//    Car build(){
+//        Car car = new Car();
+//        car.setId(++id);
+//        car.setMark(mark);
+//        car.setModel(model);
+//        car.setYear(year);
+//        car.setColor(color);
+//        car.setPrice(price);
+//        car.setNumber(number);
+//        return car;
+//    }
+//}
